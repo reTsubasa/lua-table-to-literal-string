@@ -1,5 +1,5 @@
 package = "lua-table-to-literal"
-version = "0.1.0-1
+version = "0.1.0-1"
 source = {
   branch = "master",
   url = "https://github.com/reTsubasa/lua-table-to-literal-string.git",

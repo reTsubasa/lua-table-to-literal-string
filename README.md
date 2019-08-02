@@ -20,6 +20,27 @@ The propose  usages for this library ,is you had a json format rule file ,and yo
 
 Use this library to convert the lua table to the string.Then we can just require the output lua file,and it return the orig table,without further json decode/encode cost.
 
+```lua
+local t_to_l = require("t_to_l")
+
+local tb = {1,2,3,"a","b",true,false,{1,2,3},b=2,d=true,c="123123",a=1,e={1,2,3}}
+
+local str,err = t_to_l.convert(tb)
+if not str then
+    return nil,err
+end
+-- str:
+--  {1,2,3,"a","b",true,false,{1,2,3},b=2,d=true,c="123123",a=1,e={1,2,3}}
+
+local path = "/tmp/output.lua"
+local ok,err = t_to_l.render(tb,path)
+if not ok then
+    return nil,err
+end
+--output.lua：
+--  return {1,2,3,"a","b",true,false,{1,2,3},b=2,d=true,c="123123",a=1,e={1,2,3}}
+```
+
 
 
 # Methods
@@ -54,3 +75,18 @@ Render the table to local file.If use **require** function to load the output lu
 return `true`, if succeed.
 
 Return `nil` and `error message` if failed.
+
+```lua
+local ok,err = render (tb,path)
+if not ok then
+	print(err)
+end
+```
+
+
+
+# Install
+
+luarocks:
+
+`luarocks install lua-table-to-literal`
