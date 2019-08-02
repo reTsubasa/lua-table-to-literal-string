@@ -16,9 +16,9 @@ it support
 
 # Overview
 
-The propose  usages for this library ,is you had a json format rule file ,and you may have to do the decode/encode every time, to convert the json to the table.
+The propose  usages for this library is you had a json format rule file ,and you may have to do the decode/encode every time, to convert the json to the table.
 
-Use this library to convert the lua table to the string.Then we can just require the output lua file,and it return the orig table,without further json decode/encode cost.
+Use this library to convert the lua table to the code file.Then we can just require the output lua file,and it return the orig table,without further json decode/encode cost.
 
 ```lua
 local t_to_l = require("t_to_l")
